@@ -31,5 +31,9 @@ jobs:
         env:
           # Store sensitive info as GitHub Secrets
           REG_NUMBER: ${{ secrets.REGISTRATION_NUMBER }}
+          ACCOUNT_SID: ${{ secrets.ACCOUNT_SID }}
+          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+          FROMPHONE: ${{ secrets.FROMPHONE }}
+          TOPHONE: ${{ secrets.TOPHONE }}
         run: |
           python app2.py
