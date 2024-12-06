@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import re
 import os
+from app3 import sendSMS
 
 def fetch_results(registration_number):
     # URL of the results page
@@ -117,4 +118,5 @@ def fetch_results(registration_number):
 # Use environment variable for registration number
 registration_number = os.environ.get('REG_NUMBER')
 result = fetch_results(registration_number)
+sendSMS(str(result))
 print(result)
