@@ -33,7 +33,7 @@ def fetch_results(registration_number):
 
         # Parse the results section for the specific result link
         result_soup = BeautifulSoup(result_response.text, 'html.parser')
-        result_link = result_soup.find('a', string=re.compile(r'(?=.*r20)(?=.*iii)(?=.*regular)(?=.*apr)(?=.*2024)', re.IGNORECASE))
+        result_link = result_soup.find('a', string=re.compile(r'(?=.*r20)(?=.*iv)(?=.*regular)(?=.*nov)(?=.*2024)', re.IGNORECASE))
 
         if not result_link:
             return {"error": "Result link not found"}
