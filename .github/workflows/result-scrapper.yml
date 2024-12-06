@@ -1,0 +1,38 @@
+name: Result Scraper
+
+# Controls when the workflow will run
+on:
+  schedule:
+    # Run every 2 minutes (adjust as needed)
+    - cron: "*/2 * * * *"
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE
+      - uses: actions/checkout@v3
+
+      # Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.9"
+
+      # Install dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4
+
+      # Run the script
+      - name: Run Result Scraper
+        env:
+          # Store sensitive info as GitHub Secrets
+          REG_NUMBER: ${{ secrets.REGISTRATION_NUMBER }}
+        run: |
+          python app2.py
