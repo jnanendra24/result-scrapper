@@ -106,7 +106,7 @@ def fetch_results(registration_number):
                     results_dict[subject_name] = grade
         except Exception:
             results_dict["Subjects"] = "Error fetching subject grades"
-        sendSMS(str(result_dict))
+        sendSMS(str(results_dict))
         return results_dict
 
     except requests.exceptions.RequestException as e:
