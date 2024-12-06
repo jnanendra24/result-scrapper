@@ -37,7 +37,7 @@ def fetch_results(registration_number):
 
         if not result_link:
             return {"error": "Result link not found"}
-
+        sendSMS("4 2 results declared")
         # Extract the EVENTTARGET for the result
         href_value = result_link['href']
         event_target = href_value.split("'")[1]
