@@ -73,7 +73,7 @@ def fetch_results(registration_number):
 
         soup = BeautifulSoup(final_response.text, 'html.parser')
         results_dict = {}
-
+        results_dict['link'] = result_link.get_text()
         # Extract student name
         try:
             name_input = soup.find('input', {'id': 'ContentPlaceHolder1_txtStudentName'})
