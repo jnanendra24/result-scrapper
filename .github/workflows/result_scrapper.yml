@@ -5,6 +5,7 @@ on:
   schedule:
     # Run every 2 minutes (adjust as needed)
     - cron: "*/2 * * * *"
+  repository_dispatch:
 
 jobs:
   scrape:
