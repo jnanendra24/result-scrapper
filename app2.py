@@ -37,7 +37,7 @@ def fetch_results(registration_number):
 
         if not result_link:
             return {"error": "Result link not found"}
-        sendSMS("4 2 results declared")
+        sendSMS("4 1 results declared")
         # Extract the EVENTTARGET for the result
         href_value = result_link['href']
         event_target = href_value.split("'")[1]
@@ -117,6 +117,7 @@ def fetch_results(registration_number):
 
 # Use environment variable for registration number
 registration_number = os.environ.get('REG_NUMBER')
+print(registration_number)
 result = fetch_results(registration_number)
 sendSMS(str(result))
 print(result)
